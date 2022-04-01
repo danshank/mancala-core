@@ -3,7 +3,7 @@ import Models.*
 package object Utilities:
   def startingBoard(): Board = 
     val mancalas = Player.values map (p => (p, 0)) toMap
-    val slots = Vector.apply(6, 4)
+    val slots = Vector.fill(6)(4)
     val playerSlots = Player.values map (p => (p, slots)) toMap
     val board = Board(mancalas, playerSlots)
     board

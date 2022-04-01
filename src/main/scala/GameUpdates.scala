@@ -4,7 +4,7 @@ import Models.*
 package object GameUpdates:
   def stealSeeds(position: Position, board: Board): Board =
     val seedsInPosition = getSeedCount(position, board)
-    val opposingPosition = Position(6 - position.slot, getOtherPlayer(position.player))
+    val opposingPosition = Position(5 - position.slot, getOtherPlayer(position.player))
     val seedsInOpposingPosition = getSeedCount(opposingPosition, board)
     val seedsInPlayersMancala = board.mancalas(position.player)
     val updatedMancalas = board.mancalas + (position.player -> (seedsInPlayersMancala + seedsInPosition + seedsInOpposingPosition))
@@ -26,7 +26,7 @@ package object GameUpdates:
       ((player, seedCount) => (player, playerSlotCounts(player) + seedCount)) toMap
     val updatedSlots: Map[Player, Vector[Int]] = 
       Player.values map 
-      (player => (player, Vector.apply(6, 0))) toMap
+      (player => (player, Vector.fill(6)(0))) toMap
     val finalBoard = Board(updatedMancalas, updatedSlots)
     if updatedMancalas(Player.One) == updatedMancalas(Player.Two)
     then
