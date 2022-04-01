@@ -1,4 +1,5 @@
 import Utilities.*
+import Models.*
 
 package object MoveValidations:
   def slotHasSeedsToMakeMove(move: Position, board: Board): Boolean =

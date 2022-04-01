@@ -1,3 +1,5 @@
+import Models.*
+
 package object Utilities:
   def startingBoard(): Board = 
     val mancalas = Player.values map (p => (p, 0)) toMap

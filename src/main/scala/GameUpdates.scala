@@ -1,4 +1,5 @@
 import Utilities.*
+import Models.*
 
 package object GameUpdates:
   def stealSeeds(position: Position, board: Board): Board =
